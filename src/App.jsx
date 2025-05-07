@@ -41,7 +41,7 @@ export default function App() {
         }
       >
         {/* Padding lateral global */}
-        <Box sx={{ px: { xs: 2, md: 4, lg: 6 }, pb: 4 }}>
+        <Box sx={{ px: { xs: 2, md: 4, lg: 6 }, pt:4, pb: 4 }}>
           {/* Toggle tema */}
           <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
             <IconButton
