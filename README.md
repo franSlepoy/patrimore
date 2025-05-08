@@ -1,12 +1,29 @@
-# React + Vite
+📈 Desafío Patrimore – Gráficos de divisas e indicadores chilenos
+¡Bienvenido! Este sitio muestra el valor actual de dólar, euro y bitcoin en pesos chilenos y, además, una serie de gráficos comparativos que te ayudan a entender cómo han evolucionado frente al peso y entre sí.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 Demo en línea
+https://desafio-graficos-valores.sinestesia-lab.com/
 
-Currently, two official plugins are available:
+✨ Qué puedes ver
+Sección	Descripción
+Tarjetas	Valor instantáneo de USD, EUR y BTC en CLP.
+Evolución anual	Área acumulada (USD • EUR • BTC • IPC) 2010‑2024.
+Peso vs. dólar 2024	Radar con índice 100 = enero.
+Dólar vs. bitcoin	Barras comparando promedios mensuales 2024.
+Loader accesible	Indicador animado mientras llegan los datos.
+Modo oscuro/modod claro.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠️ Tech Stack
+⚛️ React 19 + Vite
 
-## Expanding the ESLint configuration
+🎨 Material UI (v5) para theming dark/light
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📊 Recharts para los gráficos
+
+🔌 Axios + API pública mindicador.cl
+
+🧩 Hooks personalizados para cachear y formatear datos
+
+🧪 Jest 29 + Testing Library React 14 (100 % de tests verdes)
+
+🚀 CI/CD con GitHub Actions → deploy a Hostinger (sub‑dominio)
