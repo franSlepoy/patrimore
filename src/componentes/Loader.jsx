@@ -5,6 +5,7 @@ import { Quantum } from "ldrs/react"
 export default function Loader({ height = 300 }) {
   return (
     <Box
+    role="status"          /* 👈  accesible para los tests */
       sx={{
         height,
         display: "flex",
