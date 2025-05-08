@@ -1,8 +1,6 @@
-"use client";
-
-import useMonthly2024 from "../hooks/useMonthly2024";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
+import useMonthly2024 from "../hooks/useMonthly2024"
+import Paper from "@mui/material/Paper"
+import Typography from "@mui/material/Typography"
 import {
   BarChart,
   Bar,
@@ -10,23 +8,32 @@ import {
   XAxis,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
-import { useTheme } from "@mui/material";
+} from "recharts"
+import { useTheme } from "@mui/material"
+import Loader from "./Loader"
 
-const MONTHS = ["Ene", "Feb", "Mar", "Abr", "May", "Jun"];
+
+const MONTHS = ["Ene", "Feb", "Mar", "Abr", "May", "Jun"]
 
 export default function DolarVsBitcoinBar() {
-  const monthly = useMonthly2024();
-  const theme = useTheme();
+  const monthly = useMonthly2024()
+  const theme = useTheme()
 
-  if (!monthly) return null;
+  // Loader mientras esperamos la API
+  if (!monthly) {
+    return (
+      <Paper sx={{ p: 3, mt: 4, minHeight: 360 }}>
+        <Loader height={320} />
+      </Paper>
+    )
+  }
 
-  // Solo primeros 6 meses si aún no terminó 2024
+    // Datos para el gráfico
   const chartData = MONTHS.map((m, i) => ({
     month: m,
     dolar: monthly.dolarAvg[i],
     bitcoin: monthly.btcAvg[i],
-  }));
+  }))
 
   return (
     <Paper sx={{ p: 3, mt: 4 }}>
@@ -51,5 +58,5 @@ export default function DolarVsBitcoinBar() {
         </BarChart>
       </ResponsiveContainer>
     </Paper>
-  );
+  )
 }

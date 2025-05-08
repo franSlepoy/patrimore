@@ -1,7 +1,5 @@
-"use client";
-
 import useAnnualSeries from "../hooks/useAnnualSeries";
-import { useTheme } from "@mui/material/styles";
+import { useTheme, alpha } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -15,11 +13,21 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { alpha } from "@mui/material";
+import Loader from "./Loader";
+// loader de Quantum
 
 export default function IndicatorsChart() {
-  const data = useAnnualSeries();
+  const data = useAnnualSeries(); // fetch desde tu hook
   const theme = useTheme();
+
+  // mientras no llegan los datos → loader
+  if (!data.length) {
+    return (
+      <Paper sx={{ p: 3, mt: 4, minHeight: 370 }}>
+        <Loader height={340} />
+      </Paper>
+    );
+  }
 
   const COLORS = {
     dolar: theme.palette.primary.main,
@@ -28,15 +36,13 @@ export default function IndicatorsChart() {
     ipc: "#EF476F",
   };
 
-  if (!data.length) return null;
-
   return (
     <Paper sx={{ p: 3, mt: 4 }}>
       <Typography variant="h6" className="title-animate">
         Evolución anual de dólar, euro, bitcoin e IPC
       </Typography>
       <Typography variant="body2" color="text.secondary" mb={2}>
-        Valores promedio en CLP (IPC en %)
+        Valores promedio en CLP (IPC en %)
       </Typography>
 
       <Box sx={{ width: "100%", height: 340 }}>
